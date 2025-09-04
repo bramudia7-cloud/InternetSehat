@@ -1,406 +1,149 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internet Sehat</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Internet Sehat untuk Keluarga</title>
     <style>
-        /* Pengaturan Dasar */
+        /* Reset dan setting dasar */
+        * {
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            background-color: #e9f5e9;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            color: #2f2f2f;
         }
-
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 0 20px;
-        }
-
-        /* Header */
         header {
-            background: #35424a;
-            color: #ffffff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #0779e4 3px solid;
+            background: linear-gradient(90deg, #4caf50, #81c784);
+            color: white;
+            padding: 25px 15px;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-
-        header h1 {
-            float: left;
-            margin: 0;
-        }
-
-        header nav {
-            float: right;
-            margin-top: 10px;
-        }
-
-        header ul {
-            margin: 0;
-            padding: 0;
-        }
-
-        header li {
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-
-        header a {
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-
-        header a:hover {
-            color: #0779e4;
-            font-weight: bold;
-        }
-
-        /* Main Content & Card Style */
         main {
-            padding: 20px 0;
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
-
-        .card {
-            background: #ffffff;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        section {
+            margin-bottom: 30px;
         }
-
-        .card h2 {
-            color: #0779e4;
-            border-bottom: 2px solid #f4f4f4;
-            padding-bottom: 10px;
+        h2 {
+            border-left: 6px solid #4caf50;
+            padding-left: 12px;
+            color: #388e3c;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
-
-        /* Galeri */
-        .gallery-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-top: 20px;
+        p {
+            line-height: 1.65;
+            font-size: 1.1rem;
         }
-
-        .gallery-container img {
-            width: 32%;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        ul {
+            list-style-type: disc;
+            padding-left: 25px;
+            line-height: 1.6;
         }
-
-        /* Kontak */
-        #kontak a {
-            color: #0779e4;
-            text-decoration: none;
+        .app-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
         }
-
-        /* Footer */
-        footer {
-            background: #35424a;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        /* Desain Responsif untuk Mobile */
-        @media(max-width: 768px) {
-            header h1, header nav {
-                float: none;
-                text-align: center;
-                width: 100%;
-            }
-
-            header nav ul {
-                margin-top: 10px;
-            }
-            
-            header nav li {
-                display: block;
-                text-align: center;
-                padding: 10px;
-            }
-
-            .gallery-container img {
-                width: 100%;
-            }
-
-            .container {
-                width: 95%;
-            }
-        }
-
-        /* Tombol Kembali ke Atas */
-        #scrollToTopBtn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            z-index: 99;
-            border: none;
-            outline: none;
-            background-color: #0779e4;
-            color: white;
-            cursor: pointer;
-            padding: 15px 20px;
-            border-radius: 5px;
-            font-size: 18px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        .app-list li {
+            background-color: #d0f0c0;
+            margin-bottom: 12px;
+            padding: 12px 20px;
+            font-weight: 600;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(56, 142, 60, 0.3);
             transition: background-color 0.3s ease;
         }
-
-        #scrollToTopBtn:hover {
-            background-color: #055ba3;
+        .app-list li:hover {
+            background-color: #a4d37e;
         }
-
-        @media(max-width: 768px) {
-            #scrollToTopBtn {
-                bottom: 15px;
-                right: 15px;
-                padding: 12px 16px;
-                font-size: 16px;
-            }
-        }
-
-        .gallery-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .gallery-item {
-            width: 200px;
-            height: 200px;
-            overflow: hidden;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        .uploaded-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .delete-btn {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background-color: rgba(255, 0, 0, 0.8);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 25px;
-            height: 25px;
-            font-size: 16px;
+        .warning-list li {
+            color: #c62828;
             font-weight: bold;
-            line-height: 25px;
+            margin-bottom: 10px;
+        }
+        footer {
             text-align: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            padding: 20px 10px;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            margin-top: 40px;
         }
-
-        .gallery-item:hover .delete-btn {
-            opacity: 1;
-        }
-
-        .add-image-form {
-            margin-top: 30px;
-            padding-top: 20px;
-        }
-
-        .add-image-form input[type="text"] {
-            width: 70%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
-
-        .add-image-form button {
-            padding: 10px 20px;
-            background-color: #0779e4;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .add-image-form button:hover {
-            background-color: #055ba3;
-        }
-
-        @media(max-width: 768px) {
-            .gallery-item {
-                width: 100%;
-            }
-
-            .add-image-form input[type="text"] {
-                width: 100%;
-                margin-bottom: 10px;
-            }
+        .highlight {
+            background-color: #fff9c4;
+            padding: 10px 15px;
+            border-left: 6px solid #fdd835;
+            font-weight: 700;
+            border-radius: 6px;
+            font-size: 1.1rem;
         }
     </style>
 </head>
 <body>
-
     <header>
-        <div class="container">
-            <h1>KKN 71 Unit 120</h1>
-            <nav>
-                <ul>
-                    <li><a href="#tentang">Tentang</a></li>
-                    <li><a href="#visi-misi">Visi & Misi</a></li>
-                    <li><a href="#galeri">Galeri</a></li>
-                    <li><a href="#kontak">Kontak</a></li>
-                </ul>
-            </nav>
-        </div>
+        Internet Sehat untuk Keluarga
     </header>
-
     <main>
-        <section id="tentang" class="card">
-            <div class="container">
-                <h2>1. Apa Itu Internet Sehat?</h2>
-                <p>
-                    Internet sehat adalah cara menggunakan internet secara bijak, aman, bermanfaat, dan bertanggung jawab, sehingga tidak menimbulkan dampak negatif bagi diri sendiri maupun orang lain. Internet sehat bukan berarti membatasi akses sepenuhnya, melainkan mengendalikan diri dalam memilih, mengakses, dan menyebarkan informasi.
-                </p>
-            </div>
+        <section id="penting">
+            <h2>Pentingnya Internet Sehat</h2>
+            <p>Internet menjadi bagian tak terpisahkan dalam kehidupan sehari-hari. Penggunaan yang sehat sangat penting agar anak-anak dapat tumbuh dan berkembang dengan baik tanpa terpapar hal-hal negatif dari dunia maya. Orang tua memiliki peran utama dalam membimbing dan mengawasi anak agar menggunakan internet secara bijak dan aman.</p>
         </section>
 
-        <section id="tentang" class="card">
-            <div class="container">
-                <h2>2. Pentingnya Internet Sehat</h2>
-                <p>
-                    Meningkatkan wawasan: Masyarakat bisa memperoleh pengetahuan dan informasi positif.
-                </p>
-                <P>
-                Mendukung pendidikan: Membantu siswa, guru, maupun mahasiswa dalam belajar.
-                </P>
-                Menumbuhkan kreativitas: Internet bisa menjadi sarana berkarya.
-                <p>
-                Memperluas relasi: Mempertemukan banyak orang untuk bekerja sama.
-                </p>
-                <p>
-                Mencegah dampak negatif: Seperti penyebaran hoaks, cyberbullying, penipuan online, hingga kecanduan media sosial.
-                </p>
-            </div>
+        <section id="tools">
+            <h2>Aplikasi dan Tools Pendukung</h2>
+            <ul class="app-list">
+                <li><a href="https://play.google.com/store/apps/details?id=com.google.android.apps.kids.familylink&pcampaignid=web_share">Google Family Link: Mengelola aplikasi dan waktu penggunaan perangkat anak.</a></li>
+                <li><a href="https://play.google.com/store/apps/details?id=com.qustodio.qustodioapp&pcampaignid=web_share">Qustodio: Memantau aktivitas online anak dan laporan aktivitas.</a></li>
+                <li><a href="https://apps.apple.com/in/app/kaspersky-safe-kids-with-gps/id967986300">Kaspersky Safe Kids: Melindungi dari konten berbahaya dan mengawasi aktivitas.</a></li>
+                <li><a href="https://play.google.com/store/apps/details?id=com.contentwatch.ghoti.cp2.parent&pcampaignid=web_share">Net Nanny: Mengontrol dan memonitor aktivitas internet di berbagai perangkat.</a></li>
+            </ul>
         </section>
 
-        <section id="tentang" class="card">
-            <div class="container">
-                <h2>3. Tata Cara Internet Sehat</h2>
-                <p>
-                    Berikut beberapa langkah praktis agar masyarakat dapat menerapkan internet sehat:
-                </p>
-                <h4>
-                    a. Bijak dalam Mengakses Konten
-                </h4>
-                <h4>
-                    b. Selektif dalam Menerima Informasi
-                </h4>
-                <h4>
-                    c. Etika Berkomunikasi Online
-                </h4>
-                <h4>
-                    d. Manajemen Waktu
-                </h4>
-                <h4>
-                    e. Keamanan Data Pribadi
-                </h4>
-            </div>
+        <section id="risiko">
+            <h2>Risiko yang Perlu Diwaspadai</h2>
+            <ul class="warning-list">
+                <li>Konten negatif yang tidak sesuai usia.</li>
+                <li>Cyberbullying (perundungan di dunia maya).</li>
+                <li>Penipuan online yang bisa merugikan.</li>
+                <li>Penyalahgunaan data pribadi yang bisa membahayakan privasi.</li>
+            </ul>
         </section>
 
-         <section id="tentang" class="card">
-            <div class="container">
-                <h2>4. Cara Menanggulangi Dampak Negatif Internet</h2>
-                <p>
-                    Agar masyarakat tetap terlindungi dari sisi buruk internet, berikut beberapa solusi:
-                </p>
-                <h4>
-                    a. Untuk Individu
-                </h4>
-                <p>
-                    - Kontrol diri: Sadar bahwa tidak semua hal di internet benar atau baik.
-                </p>
-                <p>
-                    - Gunakan aplikasi keamanan seperti antivirus, VPN, dan parental control.
-                </p>
-                <p>
-                    - Perkuat literasi digital agar lebih pintar dalam memilah informasi.
-                </p>
-                <h4>
-                    b. Untuk Keluarga
-                </h4>
-                <p>
-
-                </p>
-                <h4>
-                    c. Untuk Masyarakat
-                </h4>
-                <p>
-
-                </p>
-                <h4>
-                    d. Untuk Pemerintah
-                </h4>
-                <p>
-
-                </p>
-            </div>
+        <section id="tips">
+            <h2>Tips Penggunaan Internet yang Sehat</h2>
+            <ul>
+                <li>Mengatur waktu penggunaan internet agar tidak berlebihan.</li>
+                <li>Memilih konten yang sesuai dan aman bagi anak.</li>
+                <li>Menjaga privasi anak dengan membatasi informasi yang dibagikan secara online.</li>
+                <li>Memberikan teladan yang baik dalam penggunaan teknologi.</li>
+                <li>Bersikap terbuka dan selalu berkomunikasi dengan anak mengenai pengalaman mereka di dunia maya.</li>
+            </ul>
         </section>
 
-         <section id="tentang" class="card">
-            <div class="container">
-                <h2>5. Kesimpulan</h2>
-                <p>
-                    Internet sehat adalah tanggung jawab bersama. Dengan kesadaran individu, peran keluarga, dukungan masyarakat, dan kebijakan pemerintah, masyarakat bisa memanfaatkan internet sebagai sarana yang produktif, aman, dan bermanfaat.
-                </p>
+        <section id="pesan">
+            <h2>Pesan Penting</h2>
+            <div class="highlight">
+                Keamanan keluarga dimulai dari upaya bersama orang tua dan anggota keluarga untuk menciptakan lingkungan digital yang aman, sehat, dan mendukung tumbuh kembang anak secara positif.
             </div>
         </section>
-
+    </main>
     <footer>
-        <div class="container">
-            <p>&copy; 2025 KKN 71 | Unit 120 . Hak Cipta Dilindungi.</p>
-        </div>
+        &copy; 2025 Banaran Project
     </footer>
-
-    <button id="scrollToTopBtn" title="Kembali ke Atas">↑</button>
-
-    <script>
-        // Ambil tombol
-        let mybutton = document.getElementById("scrollToTopBtn");
-
-        // Saat pengguna menggulir ke bawah 20px dari atas dokumen, tampilkan tombol
-        window.onscroll = function() {scrollFunction()};
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        // Saat pengguna mengklik tombol, gulirkan dokumen ke atas
-        mybutton.addEventListener("click", function() {
-            document.body.scrollTop = 0; // Untuk Safari
-            document.documentElement.scrollTop = 0; // Untuk Chrome, Firefox, IE dan Opera
-        });
-    </script>
-
 </body>
 </html>
-
